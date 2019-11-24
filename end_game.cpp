@@ -10,17 +10,17 @@ void end_game::Initialize(sf::RenderWindow* window)
 	this->_font = new sf::Font(); // khoi tao _font la new sf::Font
 	this->_font->loadFromFile("Graphics/font.ttf"); // load font tu file
 
-	this->_player1win = new sf::Text("Player 1 win!", *this->_font, 128U); // khoi tao _player1win la new sf::Text
+	this->_playerlose = new sf::Text("You lose!", *this->_font, 128U); // khoi tao _player1win la new sf::Text
 	// dat vi tri goc cua _player1win
-	this->_player1win->setOrigin(this->_player1win->getGlobalBounds().width / 2, this->_player1win->getGlobalBounds().height / 2);
+	this->_playerlose->setOrigin(this->_playerlose->getGlobalBounds().width / 2, this->_playerlose->getGlobalBounds().height / 2);
 	// dat vi tri cua _player1win
-	this->_player1win->setPosition(window->getSize().x / 2, window->getSize().y / 5);
+	this->_playerlose->setPosition(window->getSize().x / 2, window->getSize().y / 5);
 
-	this->_player2win = new sf::Text("Player 2 win!", *this->_font, 128U); // khoi tao _player2win la new sf::Text
-	// dat vi tri goc cua _player2win
-	this->_player2win->setOrigin(this->_player2win->getGlobalBounds().width / 2, this->_player2win->getGlobalBounds().height / 2);
-	// dat vi tri cua _player2win
-	this->_player2win->setPosition(window->getSize().x / 2, window->getSize().y / 5);
+	//this->_player2win = new sf::Text("Player 2 win!", *this->_font, 128U); // khoi tao _player2win la new sf::Text
+	//// dat vi tri goc cua _player2win
+	//this->_player2win->setOrigin(this->_player2win->getGlobalBounds().width / 2, this->_player2win->getGlobalBounds().height / 2);
+	//// dat vi tri cua _player2win
+	//this->_player2win->setPosition(window->getSize().x / 2, window->getSize().y / 5);
 
 	this->_playagain = new sf::Text("Play Again?", *this->_font, 64U); // khoi tao _playagain la new sf::Text
 	// dat vi tri goc cua _playeragain
@@ -97,16 +97,16 @@ void end_game::Render(sf::RenderWindow* window)
 	window->draw(*this->_quit); // ve _quit ra window
 
 	// neu _player bang 1
-	if (this->_player == 1)
+	if (this->state == 1)
 	{
-		window->draw(*this->_player1win); // ve _player1win ra window
+		window->draw(*this->_playerlose); // ve _player1win ra window
 	}
 
-	// neu _player bang 2
-	if (this->_player == 2)
-	{
-		window->draw(*this->_player2win);  // ve _player2win ra window
-	}
+	//// neu _player bang 2
+	//if (this->_player == 2)
+	//{
+	//	window->draw(*this->_player2win);  // ve _player2win ra window
+	//}
 }
  
 // Input: tham so dang con tro sf::RenderWindow
@@ -117,14 +117,14 @@ void end_game::Destroy(sf::RenderWindow* window)
 	delete this->_font; // xoa _font
 	delete this->_playagain; // xoa _playagain
 	delete this->_quit; // xoa _quit
-	delete this->_player1win; // xoa _player1win
-	delete this->_player2win; // xoa _player2win
+	delete this->_playerlose; // xoa _player1win
+	//delete this->_player2win; // xoa _player2win
 }
 
 // Input: tham so dang int
 // Output: doi tuong end_game
 // Chuc nang: khoi tao end_game
-end_game::end_game(int player)
+end_game::end_game(int state)
 {
-	this->_player = player; // gan _player la tham so player
+	this->state = state; // gan _player la tham so player
 }

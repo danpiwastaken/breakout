@@ -9,23 +9,23 @@ void player_paddle::Update(sf::RenderWindow* window)
 	{
 	case 0:
 		// thay doi _velocity.y dua vao nut S va W 
-		this->_velocity.y = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) - sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W);
+		this->_velocity.x = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) - sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
 		break;
-	default:
-		// thay doi _velocity.y dua vao nut mui ten len va xuong
-		this->_velocity.y = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) - sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
-		break;
+	//default:
+	//	// thay doi _velocity.y dua vao nut mui ten len va xuong
+	//	this->_velocity.y = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) - sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
+	//	break;
 	}
 
-	// neu player_paddle di chuyen khoi thanh` tren, di chuyen y cua player_paddle len 1
-	if (this->getPosition().y < 0) 
+	// neu player_paddle di chuyen khoi thanh` trai, di chuyen x cua player_paddle len 1
+	if (this->getPosition().x < 0) 
 	{
-		this->move(0, 1.0f);
+		this->move(1.4f, 0);
 	}
-	// neu player_paddle di chuyen khoi thanh` duoi, di chuyen y cua player_paddle xuong 1
-	if (this->getPosition().y + this->getGlobalBounds().height > window->getSize().y)
+	// neu player_paddle di chuyen khoi thanh` phai, di chuyen y cua player_paddle xuong 1
+	if (this->getPosition().x + this->getGlobalBounds().width > window->getSize().x)
 	{
-		this->move(0, -1.0f);
+		this->move(-1.4f, 0);
 	}
 	Entity::Update(); // goi ham Update cua Entity de di chuyen player_paddle
 }

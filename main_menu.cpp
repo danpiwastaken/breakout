@@ -13,7 +13,7 @@ void main_menu::Initialize(sf::RenderWindow* window)
 	this->_font->loadFromFile("Graphics/font.ttf"); // load font tu file
 
 	 // khoi tao _title la new sf::Text voi tham so string, _font va co~ chu~
-	this->_title = new sf::Text("Air Hockey", *this->_font, 128U);
+	this->_title = new sf::Text("Break Out", *this->_font, 128U);
 	// dat vi tri goc cua _title
 	this->_title->setOrigin(this->_title->getGlobalBounds().width / 2, this->_title->getGlobalBounds().height / 2);
 	// dat vi tri cua _title

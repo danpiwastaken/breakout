@@ -4,9 +4,9 @@
 // Input:
 // Output:
 // Chuc nang: tang score
-void Score::increaseScore()
+void Score::decreaseScore()
 {
-	this->_value += 1; // tang _value len 1
+	this->_value -= 1; // giam _value len 1
 }
 
 // Input:
@@ -22,7 +22,7 @@ void Score::Update()
 // Chuc nang: khoi tao Score
 Score::Score(sf::Font &font, unsigned int size) : sf::Text("0", font, size)
 {
-	this->_value = 0; // gan _value la 0
+	this->_value = 3; // gan _value la 3
 }
 
 Score::Score()
