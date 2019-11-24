@@ -3,13 +3,13 @@
 class end_game : public tiny_state // class end_game ke thua tu tiny_state
 {
 private:
-	int _player; // khai bao thuoc tinh _player dang int
+	int state; // khai bao thuoc tinh _state dang int
 
 	sf::Font* _font; // khai bao thuoc tinh _font dang con tro sf::Font
 	sf::Text* _playagain; // khai bao thuoc tinh _playagain dang con tro sf::Text
 	sf::Text* _quit; // khai bao thuoc tinh _quit dang con tro sf::Text
-	sf::Text* _player1win; // khai bao thuoc tinh _player1win dang con tro sf::Text
-	sf::Text* _player2win; // khai bao thuoc tinh _player2win dang con tro sf::Text
+	sf::Text* _playerlose; // khai bao thuoc tinh _player1lose dang con tro sf::Text
+	//sf::Text* _player2win; // khai bao thuoc tinh _player2win dang con tro sf::Text
 
 	int _selected; // khai bao thuoc tinh _selected dang int
 

@@ -1,6 +1,6 @@
 #define NOMINMAX
 #include <Windows.h>
-#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
 #include "GameState.h"
 #include "main_menu.h"
 
@@ -9,7 +9,7 @@ bool quitGame = false; // khai bao bool quitGame la false
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1024, 576), "Air Hockey"); // tao window co w:1024, h:576, ten Air Hockey
+	sf::RenderWindow window(sf::VideoMode(1024, 576), "Break Out"); // tao window co w:1024, h:576, ten Air Hockey
 
 	coreState.setWindow(&window); // goi ham setWindow cua coreState voi tham so la window vua tao
 	coreState.setState(new main_menu()); // goi ham setState cua coreState voi tham so la new main_menu
