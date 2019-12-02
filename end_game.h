@@ -9,7 +9,6 @@ private:
 	sf::Text* _playagain; // khai bao thuoc tinh _playagain dang con tro sf::Text
 	sf::Text* _quit; // khai bao thuoc tinh _quit dang con tro sf::Text
 	sf::Text* _playerlose; // khai bao thuoc tinh _player1lose dang con tro sf::Text
-	//sf::Text* _player2win; // khai bao thuoc tinh _player2win dang con tro sf::Text
 
 	int _selected; // khai bao thuoc tinh _selected dang int
 
