@@ -8,13 +8,9 @@ void player_paddle::Update(sf::RenderWindow* window)
 	switch (this->_playerNum)
 	{
 	case 0:
-		// thay doi _velocity.y dua vao nut S va W 
+		// thay doi _velocity.y dua vao nut mui ten trai va phai 
 		this->_velocity.x = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) - sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
 		break;
-	//default:
-	//	// thay doi _velocity.y dua vao nut mui ten len va xuong
-	//	this->_velocity.y = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) - sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up);
-	//	break;
 	}
 
 	// neu player_paddle di chuyen khoi thanh` trai, di chuyen x cua player_paddle len 1

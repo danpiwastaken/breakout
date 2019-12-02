@@ -28,19 +28,6 @@ void ball::Update(sf::RenderWindow* window)
 
 	Entity::Update(); // goi ham Update cua Entity de di chuyen ball
 
-	//if (this->getPosition().x < 0) // neu ball cham thanh` trai
-	//{
-	//	this->_score2->increaseScore(); // tang _score2
-	//	this->Reset(window); // goi ham Reset
-	//}
-
-	//// neu ball cham thanh` phai
-	//if (this->getPosition().x + this->getGlobalBounds().width > window->getSize().x + this->_player2->getGlobalBounds().width - 30 )
-	//{
-	//	this->_score1->increaseScore(); //tang _score1
-	//	this->Reset(window); // goi ham Reset
-	//}
-
 	if (this->getPosition().y + this->getGlobalBounds().height > window->getSize().y)
 	{
 		this->_score1->decreaseScore();
@@ -55,9 +42,6 @@ void ball::Reset(sf::RenderWindow* window)
 {
 	this->_player1->setPosition((window->getSize().x / 2), (window->getSize().y) - 32); // dat vi tri player1 ve giua thanh` duoi
 
-	// dat vi tri player2 ve giua thanh` phai
-	//this->_player2->setPosition(window->getSize().x - this->_player2->getGlobalBounds().width, (window->getSize().y / 2) - 50);
-
 	this->setPosition(window->getSize().x / 2, window->getSize().y / 2); // dat vi tri ball ve giua window
 	this->_velocity.x = 1.0f; // gan _velocity.x ve lai 1
 	this->_velocity.y = 0.75f; // gan _velocity.y ve lai 0.75
@@ -69,10 +53,8 @@ ball::ball(Score* score1, /*Score* score2,*/ player_paddle* player1/*, player_pa
 {
 	this->Load("ball.png"); // load texture cua ball bang "ball.png"
 	this->_player1 = player1; // gan _player1 la player1
-	//this->_player2 = player2; // gan _player2 la player2
 	
 	this->_score1 = score1; // gan _score1 la score1
-	//this->_score2 = score2; // gan _score2 la score2
 
 	this->_velocity.x = 1.0f; // gan _velocity.x la 1
 	this->_velocity.y = 0.75f; // gan _velocity.y la 0.75

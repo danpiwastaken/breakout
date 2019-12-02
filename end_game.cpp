@@ -16,12 +16,6 @@ void end_game::Initialize(sf::RenderWindow* window)
 	// dat vi tri cua _player1win
 	this->_playerlose->setPosition(window->getSize().x / 2, window->getSize().y / 5);
 
-	//this->_player2win = new sf::Text("Player 2 win!", *this->_font, 128U); // khoi tao _player2win la new sf::Text
-	//// dat vi tri goc cua _player2win
-	//this->_player2win->setOrigin(this->_player2win->getGlobalBounds().width / 2, this->_player2win->getGlobalBounds().height / 2);
-	//// dat vi tri cua _player2win
-	//this->_player2win->setPosition(window->getSize().x / 2, window->getSize().y / 5);
-
 	this->_playagain = new sf::Text("Play Again?", *this->_font, 64U); // khoi tao _playagain la new sf::Text
 	// dat vi tri goc cua _playeragain
 	this->_playagain->setOrigin(this->_playagain->getGlobalBounds().width / 2, this->_playagain->getGlobalBounds().height / 2);
@@ -101,12 +95,6 @@ void end_game::Render(sf::RenderWindow* window)
 	{
 		window->draw(*this->_playerlose); // ve _player1win ra window
 	}
-
-	//// neu _player bang 2
-	//if (this->_player == 2)
-	//{
-	//	window->draw(*this->_player2win);  // ve _player2win ra window
-	//}
 }
  
 // Input: tham so dang con tro sf::RenderWindow
@@ -118,7 +106,6 @@ void end_game::Destroy(sf::RenderWindow* window)
 	delete this->_playagain; // xoa _playagain
 	delete this->_quit; // xoa _quit
 	delete this->_playerlose; // xoa _player1win
-	//delete this->_player2win; // xoa _player2win
 }
 
 // Input: tham so dang int
