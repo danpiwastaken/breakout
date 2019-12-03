@@ -64,7 +64,6 @@ void ball::Reset(sf::RenderWindow* window)
 	this->_player1->setPosition((window->getSize().x / 2), (window->getSize().y) - 32); // dat vi tri player1 ve giua thanh` duoi
 
 	this->setPosition(window->getSize().x / 2, window->getSize().y / 2); // dat vi tri ball ve giua window
-	this->setOrigin(0, 0);
 	this->_velocity.x = 1.0f; // gan _velocity.x ve lai 1
 	this->_velocity.y = 0.75f; // gan _velocity.y ve lai 0.75
 }
