@@ -80,6 +80,10 @@ void main_menu::Update(sf::RenderWindow* window)
 // Chuc nang: ve nhung thu can co cua main_menu
 void main_menu::Render(sf::RenderWindow* window)
 {
+	this->_title->setFillColor(sf::Color::Magenta); // set _title mau` hong`
+	this->_title->setOutlineColor(sf::Color::White);
+	this->_title->setOutlineThickness(3.5f);
+
 	this->_play->setFillColor(sf::Color::White); // set _play mau` trang
 	this->_quit->setFillColor(sf::Color::White); // set _quit mau` trang
 	switch (this->_selected)
