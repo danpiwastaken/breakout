@@ -14,7 +14,7 @@ void player_paddle::Update(sf::RenderWindow* window)
 	}
 
 	// neu player_paddle di chuyen khoi thanh` trai, di chuyen x cua player_paddle len 1
-	if (this->getPosition().x < 0) 
+	if (this->getPosition().x < 0)
 	{
 		this->move(1.4f, 0);
 	}
@@ -43,3 +43,9 @@ player_paddle::player_paddle(int playerNumber)
 	}
 }
 
+// Output: velocity cua doi tuong player_paddle
+// Chuc nang: tra ve velocity 
+sf::Vector2f player_paddle::getVelocity()
+{
+	return this->_velocity;
+}
