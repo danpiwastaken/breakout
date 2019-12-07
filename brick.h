@@ -2,6 +2,7 @@
 #include "Entity.h"
 #include <vector>
 #include "ball.h"
+#include "score.h"
 
 namespace std
 {
@@ -14,7 +15,7 @@ private:
 	std::state _state;
 	ball* _ball;
 public:
-	void Update();
+	void Update(Score* score);
 	void setState(std::state new_state);
 	void setBall(ball* ball);
 	std::state getState();
