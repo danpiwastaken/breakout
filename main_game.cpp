@@ -11,8 +11,12 @@ void main_game::Initialize(sf::RenderWindow* window)
 	this->_font = new sf::Font(); // khoi tao _font la new sf::Font
 	this->_font->loadFromFile("Graphics/font.ttf"); // load font tu file
 
+	this->_heart = new Entity;
+	this->_heart->Load("heart.png");
+	this->_heart->setPosition(this->_heart->getGlobalBounds().width - 20, 5);
+
 	this->_life = new life(*_font,32U); // khoi tao mang
-	this->_life->setPosition(this->_life->getGlobalBounds().width, 0);
+	this->_life->setPosition(this->_life->getGlobalBounds().width + 30, 0);
 	
 	this->_scoretext = new sf::Text("Scores: ", *this->_font, 32U);
 	this->_scoretext->setPosition(window->getSize().x - (this->_scoretext->getGlobalBounds().width + 30) , 0);
@@ -90,6 +94,7 @@ void main_game::Render(sf::RenderWindow* window)
 	window->draw(*this->_life); // ve _score1 len window
 	window->draw(*this->_score);
 	window->draw(*this->_scoretext);
+	window->draw(*this->_heart);
 
 
 	// vẽ các cục gạch
@@ -115,4 +120,5 @@ void main_game::Destroy(sf::RenderWindow* window)
 	delete[] this->_brick;
 	delete this->_score;
 	delete this->_scoretext;
+	delete this->_heart;
 }
