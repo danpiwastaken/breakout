@@ -8,7 +8,7 @@ public:
 	// Input:
 	// Output: _value
 	const int getScore() { return this->_value; } 
-	void decreaseScore(); // khai bao ham IncreaseScore
+	void increaseScore(); // khai bao ham IncreaseScore
 	void Update(); // khai bao ham Update
 	Score(sf::Font &font, unsigned int size); // ham tao co doi so
 	Score(); // ham tao k doi so

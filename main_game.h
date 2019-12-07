@@ -6,12 +6,14 @@
 class main_game :public tiny_state // class main_game ke thua tu tiny_state
 {
 private:
-	player_paddle* _player1; // khai bao thuoc tinh _player1 dang con tro player_paddle
+	player_paddle* _player; // khai bao thuoc tinh _player1 dang con tro player_paddle
 	ball* _ball; // khai bao thuoc tinh _ball dang con tro ball
 	sf::Font* _font; // khai bao thuoc tinh _font dang con tro sf::Font
 	life* _life; // khai bao thuoc tinh _score1 dang con tro Score
 	brick* _brick;
-	//sf::Text* _lives;
+	sf::Text* _scoretext;
+	Score* _score;
+	Entity* _heart;
 public:
 	void Initialize(sf::RenderWindow* window); // khai bao ham Initialize
 	void Update(sf::RenderWindow* window); // khai bao ham Update
