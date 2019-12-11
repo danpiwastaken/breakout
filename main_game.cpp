@@ -1,7 +1,7 @@
 ﻿#include "main_game.h"
-#define ROW 5
-#define COLUMN 12
-
+#define num_of_bricks 72
+#define default_x 20
+#define default_y 70
 
 // Input: tham so dang con tro sf::RenderWindow
 // Output:
@@ -11,7 +11,7 @@ void main_game::Initialize(sf::RenderWindow* window)
 	this->_font = new sf::Font(); // khoi tao _font la new sf::Font
 	this->_font->loadFromFile("Graphics/font.ttf"); // load font tu file
 
-	this->_heart = new Entity;
+	this->_heart = new Entity();
 	this->_heart->Load("heart.png");
 	this->_heart->setPosition(this->_heart->getGlobalBounds().width - 20, 5);
 
@@ -24,25 +24,25 @@ void main_game::Initialize(sf::RenderWindow* window)
 	this->_score = new Score(*_font, 32U);
 	this->_score->setPosition(window->getSize().x - this->_score->getGlobalBounds().width, 0);
 
-	this->_player = new player_paddle; // khoi tao _player1 la new player_paddle voi tham so 0
+	this->_player = new player_paddle(); // khoi tao _player1 la new player_paddle voi tham so 0
 	// dat vi tri _player1 sat thanh` trai window
 	this->_player->setPosition((window->getSize().x / 2), (window->getSize().y) - 32);
 
 	// khoi tao _ball la new ball voi tham so _score1, _score2, _player1 va _player2
 	this->_ball = new ball(this->_life, /*this->_score2,*/ this->_player/*, this->_player2*/);
 	// dat vi tri _ball o giua window
-	this->_ball->setPosition(window->getSize().x / 2, window->getSize().y / 2);
+	this->_ball->setPosition(window->getSize().x / 2 + 30, window->getSize().y / 2 + 30);
 
 
 	// khai báo các cục gạch 
-	this->_brick = new brick[12];
-	int x = 50;
-	int y = 70;
-	for (int i = 0; i < 12; i++)
+	this->_brick = new brick[num_of_bricks];
+	int x = default_x;
+	int y = default_y;
+	for (int i = 0; i < num_of_bricks; i++)
 	{
-		if (i % 6 == 0 && i != 0)
+		if (i % 12 == 0 && i != 0)
 		{
-			x = 50;
+			x = default_x;
 			y += this->_brick[i - 1].getGlobalBounds().height + 10;
 		}
 		else if (i != 0)
@@ -61,11 +61,13 @@ void main_game::Initialize(sf::RenderWindow* window)
 void main_game::Update(sf::RenderWindow* window)
 {
 	this->_player->Update(window); // goi ham Update cua _player1 voi tham so window
+
+
 	this->_ball->Update(window); // goi ham Update cua _ball voi tham so window
 	this->_life->Update(); // goi ham Update cua _life voi tham so window
 	this->_score->Update();
 	
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < num_of_bricks; i++)
 	{
 		this->_brick[i].Update(this->_score);
 	}
@@ -98,7 +100,7 @@ void main_game::Render(sf::RenderWindow* window)
 
 
 	// vẽ các cục gạch
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < num_of_bricks; i++)
 	{
 		if (this->_brick[i].getState() == std::state::normal)
 		{
