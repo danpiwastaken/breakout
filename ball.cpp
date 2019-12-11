@@ -17,7 +17,8 @@ void ball::Update(sf::RenderWindow* window)
 	// neu ball va cham voi _player1
 	if (this->checkCollision(this->_player1)) // neu banh va cham voi paddle
 	{
-		int height_distance = this->getPosition().y + this->getGlobalBounds().height - this->_player1->getPosition().y; // tinh vi tri tuong doi cua mep duong trai banh va mep tren thanh truot
+		// tinh vi tri tuong doi cua mep duong trai banh va mep tren thanh truot
+		int height_distance = this->getPosition().y + this->getGlobalBounds().height - this->_player1->getPosition().y; 
 		if (height_distance == 0) // neu mep duoi banh cham mep duoi thanh truot
 		{
 			n -= 0.02f; // giam n di 0.02
@@ -85,8 +86,8 @@ void ball::Reset(sf::RenderWindow* window)
 	this->_player1->setPosition((window->getSize().x / 2), (window->getSize().y) - 32); // dat vi tri player1 ve giua thanh` duoi
 
 	this->setPosition(window->getSize().x / 2, window->getSize().y / 2); // dat vi tri ball ve giua window
-	this->_velocity.x = 1.0f; // gan _velocity.x ve lai 1
-	this->_velocity.y = 0.75f; // gan _velocity.y ve lai 0.75
+	this->_velocity.x = 0.75f; // gan _velocity.x la 1
+	this->_velocity.y = 1.2f;// gan _velocity.y ve lai 0.75
 }
 
 // Input: score1, score2 dang con tro Score; player1, player2 dang con tro player_paddle
@@ -98,8 +99,8 @@ ball::ball(life* life, /*Score* score2,*/ player_paddle* player1/*, player_paddl
 	
 	this->_life = life; // gan _score1 la score1
 
-	this->_velocity.x = 1.0f; // gan _velocity.x la 1
-	this->_velocity.y = 0.75f; // gan _velocity.y la 0.75
+	this->_velocity.x = 0.75f; // gan _velocity.x la 1
+	this->_velocity.y = 1.2f; // gan _velocity.y la 0.75
 }
 
 

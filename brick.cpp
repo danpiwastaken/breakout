@@ -10,7 +10,7 @@ std::state brick::getState()
 	return this->_state;
 }
 
-void brick::Update()
+void brick::Update(Score* score)
 {
 	if (this->_state == std::state::destroyed)
 	{
@@ -20,6 +20,7 @@ void brick::Update()
 	{
 		this->setState(std::state::destroyed);
 		this->_ball->Update(this);
+		score->increaseScore();
 	}
 }
 
