@@ -6,17 +6,17 @@
 void player_paddle::Update(sf::RenderWindow* window)
 {
 	// thay doi _velocity.y dua vao nut mui ten trai va phai 
-	this->_velocity.x = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) - sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left);
+	this->_velocity.x = 1.5*(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) - sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left));
 
 	// neu player_paddle di chuyen khoi thanh` trai, di chuyen x cua player_paddle len 1
 	if (this->getPosition().x < 0)
 	{
-		this->move(1.4f, 0);
+		this->move(1.5f, 0);
 	}
 	// neu player_paddle di chuyen khoi thanh` phai, di chuyen y cua player_paddle xuong 1
 	if (this->getPosition().x + this->getGlobalBounds().width > window->getSize().x)
 	{
-		this->move(-1.4f, 0);
+		this->move(-1.5f, 0);
 	}
 	Entity::Update(); // goi ham Update cua Entity de di chuyen player_paddle
 }
