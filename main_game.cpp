@@ -8,6 +8,7 @@
 // Chuc nang: khoi tao nhung thu can co trong main_game
 void main_game::Initialize(sf::RenderWindow* window)
 {
+	window->setMouseCursorVisible(false);
 	this->_font = new sf::Font(); // khoi tao _font la new sf::Font
 	this->_font->loadFromFile("Graphics/font.ttf"); // load font tu file
 
@@ -18,11 +19,12 @@ void main_game::Initialize(sf::RenderWindow* window)
 	this->_life = new life(*_font,32U); // khoi tao mang
 	this->_life->setPosition(this->_life->getGlobalBounds().width + 30, 0);
 	
-	this->_scoretext = new sf::Text("Scores: ", *this->_font, 32U);
-	this->_scoretext->setPosition(window->getSize().x - (this->_scoretext->getGlobalBounds().width + 30) , 0);
+	this->_scoretext = new sf::Text("Score: ", *this->_font, 32U);
+	this->_scoretext->setPosition(window->getSize().x - (this->_scoretext->getGlobalBounds().width + 60) , 0);
 
 	this->_score = new Score(*_font, 32U);
-	this->_score->setPosition(window->getSize().x - this->_score->getGlobalBounds().width, 0);
+	this->_score->setOrigin(this->_score->getGlobalBounds().width / 2, this->_score->getGlobalBounds().height / 2);
+	this->_score->setPosition(window->getSize().x - this->_score->getGlobalBounds().width - 20, 13);
 
 	this->_player = new player_paddle(); // khoi tao _player1 la new player_paddle voi tham so 0
 	// dat vi tri _player1 sat thanh` trai window
@@ -81,7 +83,7 @@ void main_game::Update(sf::RenderWindow* window)
 	// neu _score1 < 0
 	if (this->_life->getLife() == -1)
 	{
-		coreState.setState(new end_game(1)); // goi ham setState cua coreState voi tham so new end_game co doi so la 1
+		coreState.setState(new end_game(this->_score->getScore())); // goi ham setState cua coreState voi tham so new end_game co doi so la 1
 	}
 }
 
