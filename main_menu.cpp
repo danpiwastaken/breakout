@@ -33,6 +33,14 @@ void main_menu::Initialize(sf::RenderWindow* window)
 	this->_quit->setOrigin(this->_quit->getGlobalBounds().width / 2, this->_quit->getGlobalBounds().height / 2);
 	// dat vi tri cua _quit
 	this->_quit->setPosition(window->getSize().x / 2, window->getSize().y / 1.4);
+
+	this->_music = new sf::Music();
+	if (!(_music->openFromFile("Music/menu.ogg")))
+	{
+		return void();
+	}
+	_music->play();
+	_music->setLoop(true);
 }
 
 // Input: tham so dang con tro sf::RenderWindow
@@ -110,4 +118,5 @@ void main_menu::Destroy(sf::RenderWindow* window)
 	delete this->_title; // xoa _title
 	delete this->_play; // xoa _play
 	delete this->_quit; // xoa _quit
+	delete this->_music;
 }

@@ -123,6 +123,14 @@ void end_game::Initialize(sf::RenderWindow* window)
 	this->_btn1 = new Button("Enter", { 70, 25 }, 15, sf::Color::White, sf::Color::Black);
 	this->_btn1->setFont(*this->_font);
 	this->_btn1->setPosition({ (float)(window->getSize().x / 2), (float)(window->getSize().y / 1.4) });
+
+	this->_music = new sf::Music();
+	if (!(_music->openFromFile("Music/end.ogg")))
+	{
+		return void();
+	}
+	_music->play();
+	_music->setLoop(true);
 }
 
 // Input: tham so dang con tro sf::RenderWindow
@@ -254,6 +262,7 @@ void end_game::Destroy(sf::RenderWindow* window)
 	delete this->_btn1;
 	delete this->_scores;
 	delete this->_names;
+	delete this->_music;
 }
 
 // Input: tham so dang int

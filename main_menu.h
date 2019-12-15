@@ -1,5 +1,6 @@
 #pragma once
 #include "GameState.h"
+#include "SFML/Audio/Music.hpp"
 
 class main_menu :public tiny_state // class main_menu ke thua tu tiny_state
 {
@@ -8,6 +9,7 @@ private:
 	sf::Text* _title; // khai bao thuoc tinh _title dang con tro sf::Text
 	sf::Text* _play; // khai bao thuoc tinh _play dang con tro sf::Text
 	sf::Text* _quit; // khai bao thuoc tinh _quit dang con tro sf::Text
+	sf::Music* _music;
 
 	int _selected; // khai bao thuoc tinh _selected dang int
 
