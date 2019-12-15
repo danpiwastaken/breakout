@@ -198,6 +198,7 @@ void end_game::Update(sf::RenderWindow* window)
 					if (this->_btn1->isMouseOver(*window)) {
 						this->_nameText[i].setString(this->_text1->getText());
 						this->_playerList[i].playerName = this->_text1->getText();
+						window->setMouseCursorVisible(false);
 					}
 				}
 			}
