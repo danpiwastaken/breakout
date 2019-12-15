@@ -1,6 +1,6 @@
 #include "ball.h"
 #define increasement 0.02
-#define increasement2 0.005
+#define increasement2 0.02
 #define maxSpeed 5.0
 
 ball::ball()
