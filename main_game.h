@@ -2,6 +2,7 @@
 #include "main_menu.h"
 #include "end_game.h"
 #include "brick.h"
+#include <SFML/Audio/Music.hpp>
 
 class main_game :public tiny_state // class main_game ke thua tu tiny_state
 {
@@ -13,10 +14,23 @@ private:
 	brick* _brick;
 	sf::Text* _scoretext;
 	Score* _score;
-	Entity* _heart;
+	Entity* _heart;	
+	sf::Music* _music;
+
+	// giao dien khi nhan escape
+	sf::Text* _save;
+	sf::Text* _load;
+	sf::Text* _main_menu;
+	sf::Text* _quit;
+	sf::Text* _back;
+	int _selected;
+
+	bool _isUp, _isDown, _inSelection;
 public:
 	void Initialize(sf::RenderWindow* window); // khai bao ham Initialize
 	void Update(sf::RenderWindow* window); // khai bao ham Update
 	void Render(sf::RenderWindow* window); // khai bao ham Render
 	void Destroy(sf::RenderWindow* window); // khi bao ham Destroy
+	void SaveGame();
+	void LoadGame();
 };

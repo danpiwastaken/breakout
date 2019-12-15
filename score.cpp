@@ -9,6 +9,11 @@ void Score::increaseScore()
 	this->_value += 1; // giam _value len 1
 }
 
+void Score::increaseScore(int amount)
+{
+	this->_value += amount;
+}
+
 // Input:
 // Output:
 // Chuc nang: cap nhat score
