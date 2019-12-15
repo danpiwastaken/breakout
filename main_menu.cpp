@@ -7,6 +7,7 @@
 // Chuc nang: khoi tao nhung thu can co trong main_menu
 void main_menu::Initialize(sf::RenderWindow* window)
 {
+	window->setMouseCursorVisible(false);
 	this->_selected = 0; // gan _selected = 0;
 
 	this->_font = new sf::Font(); // khoi tao _font la new sf::Font
@@ -58,7 +59,7 @@ void main_menu::Update(sf::RenderWindow* window)
 		this->_selected = 1; // gan _selected bang 1
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return)) // neu bam nut enter
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) // neu bam nut enter
 	{
 		switch (this->_selected)
 		{
@@ -80,8 +81,8 @@ void main_menu::Update(sf::RenderWindow* window)
 // Chuc nang: ve nhung thu can co cua main_menu
 void main_menu::Render(sf::RenderWindow* window)
 {
-	this->_title->setFillColor(sf::Color::Magenta); // set _title mau` hong`
-	this->_title->setOutlineColor(sf::Color::White);
+	this->_title->setFillColor(sf::Color::Black); // set _title mau` hong`
+	this->_title->setOutlineColor(sf::Color::Magenta);
 	this->_title->setOutlineThickness(3.5f);
 
 	this->_play->setFillColor(sf::Color::White); // set _play mau` trang

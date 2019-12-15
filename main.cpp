@@ -35,7 +35,7 @@ int main()
 	coreState.setWindow(&window); // goi ham setWindow cua coreState voi tham so la window vua tao
 	coreState.setState(new main_menu()); // goi ham setState cua coreState voi tham so la new main_menu
 	
-	window.setMouseCursorVisible(false); // giau con tro chuot khoi man hinh
+	//window.setMouseCursorVisible(true); // giau con tro chuot khoi man hinh
 	window.setFramerateLimit(120); // dat framerate gioi han la 120
 
 	// chay chuong trinh khi window van dang mo
