@@ -6,7 +6,9 @@
 #include "Button.h"
 #include "Textbox.h"
 #include <algorithm>
+#include <SFML/Audio/Music.hpp>
 
+#define SAVE_FILE_PATH "Resources/Saves.txt"
 #define SCORE_FILE_PATH "Resources/Scores.txt"
 #define NUM_OF_ROWS 5
 #define DEFAULT_X 100
@@ -40,6 +42,7 @@ private:
 	sf::Text* _scoreText;
 	sf::Text* _nameText;
 
+	sf::Music* _music;
 	Textbox* _text1;
 	Button* _btn1;
 public:
